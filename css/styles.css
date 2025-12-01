@@ -404,6 +404,30 @@ main {
   cursor: default;
 }
 
+/* MOBILE FIX: prevent stretched marquee */
+@media (max-width: 768px) {
+  .slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .slider-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content; /* important */
+    will-change: transform;
+  }
+
+  .slide {
+    width: 70px !important;
+    height: 70px !important;
+    flex-shrink: 0;
+    object-fit: contain; /* ensure image does not overflow */
+  }
+}
+
+
 .tech-card {
   display: flex;
   flex-direction: column;
