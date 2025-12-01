@@ -264,6 +264,7 @@ main {
   display: flex;
   gap: 1.2rem;
   justify-content: center;
+  animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 /* Main button style */
@@ -286,6 +287,7 @@ main {
   color: white;
   transition: 0.25s ease;
   backdrop-filter: blur(10px);
+  animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .hero-btn:hover {
@@ -296,6 +298,62 @@ main {
 /* Icon size adjustment */
 .hero-btn svg {
   margin-top: -1px;
+}
+
+/* ───────── Mobile Fix ───────── */
+@media (max-width: 768px) {
+
+    /* ข้อความ Hero */
+    .hero-title {
+        font-size: 2.2rem;     /* จาก 4-5rem ลดลง */
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    /* ปรับปุ่มให้เล็กลง */
+    .hero-buttons {
+        flex-direction: column;    /* ซ้อนกัน */
+        gap: 12px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .hero-btn {
+        width: 85%;
+        max-width: 280px;
+        padding: 12px 18px;
+        font-size: 0.95rem;
+    }
+
+    .hero-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.mobile-break {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-break {
+    display: inline;
+  }
+
+  .hero-subtitle {
+    white-space: normal !important;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    max-width: 90%;
+    margin: 0 auto 1rem;
+  }
 }
 
 
@@ -658,6 +716,66 @@ main {
   }
 }
 
+/* ===========================
+   ABOUT MOBILE FIX (REAL WORKING)
+=========================== */
+
+@media (max-width: 768px) {
+
+    /* โครงหลัก */
+    .about-flex {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 1.8rem;
+        width: 100%;
+    }
+
+    /* จัดรูปให้อยู่กลางจริง */
+    .about-img {
+        width: 100%;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .about-img img {
+        width: 75%;
+        max-width: 260px;
+        border-radius: 16px;
+        display: block;
+    }
+
+    /* ตัวหนังสือ */
+    .about-text {
+        width: 100%;
+        padding: 0 1.5rem;
+        text-align: center !important;
+    }
+
+    .about-text p {
+        font-size: 0.95rem !important;
+        line-height: 1.65 !important;
+        margin-bottom: 1.2rem;
+    }
+
+    /* ปุ่ม Get In Touch */
+    .about-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem auto 0 auto;
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+        border-radius: 40px;
+        width: auto !important;
+    }
+
+    .about-btn svg {
+        margin-right: 8px;
+    }
+}
+
+
 /* ============================================
    About Page
    ============================================ */
@@ -890,6 +1008,73 @@ main {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+/* ===========================
+   Mobile Responsive
+=========================== */
+@media (max-width: 768px) {
+
+    /* ------- Filter Buttons -------- */
+    .filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        border-radius: 50px;
+        border: 1px solid rgba(255,255,255,0.15);
+        background: rgba(255,255,255,0.07);
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+        white-space: nowrap;
+        transition: 0.25s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+        background: rgba(255,255,255,0.18);
+        border-color: rgba(255,255,255,0.35);
+    }
+
+    .portfolio-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+        width: 100%;
+    }
+
+    .portfolio-item {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .portfolio-thumb {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+        border-radius: 12px;
+    }
+
+    /* ปรับชื่อและหมวดหมู่ให้เล็กลง */
+    .portfolio-item-info h3 {
+        font-size: 0.8rem !important;
+        margin-top: 0.3rem;
+        text-align: center;
+    }
+
+    .portfolio-item-info .category {
+        font-size: 0.7rem !important;
+        display: block;
+        opacity: 0.7;
+        text-align: center;
+    }
+}
+
 
 /* ============================================
    Project Page
@@ -1642,6 +1827,7 @@ nav.scrolled {
   background: linear-gradient(90deg, #fff, #bbb);
   -webkit-background-clip: text;
   color: transparent;
+  animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .about-img {
