@@ -404,28 +404,35 @@ main {
   cursor: default;
 }
 
-/* MOBILE FIX: prevent stretched marquee */
+/* ================================
+   FIX MARQUEE MOBILE BUG
+   ================================ */
 @media (max-width: 768px) {
   .slider-wrapper {
-    overflow: hidden;
-    width: 100%;
-    padding: 0 1rem;
+    overflow: hidden !important;
+    width: 100% !important;
   }
 
   .slider-track {
-    display: flex;
-    gap: 1rem;
-    width: max-content; /* important */
-    will-change: transform;
+    animation: none !important;
+    transform: none !important;
+
+    /* เปลี่ยนเป็น GRID จัดเป็น 2 หรือ 3 columns */
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    padding: 1rem 0;
+    justify-items: center;
+    width: 100% !important;
   }
 
   .slide {
     width: 70px !important;
     height: 70px !important;
-    flex-shrink: 0;
-    object-fit: contain; /* ensure image does not overflow */
+    object-fit: contain;
   }
 }
+
 
 
 .tech-card {

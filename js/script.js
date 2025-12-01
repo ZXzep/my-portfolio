@@ -322,6 +322,11 @@ window.addEventListener("scroll", () => {
 });
 
 function initInfiniteSlider() {
+    // ปิดการทำงานทั้งหมดบนมือถือ
+  if (window.innerWidth < 768) {
+      console.log("Marquee disabled on mobile");
+      return;
+    }
   const track = document.querySelector(".slider-track");
   if (!track) return;
 
@@ -460,16 +465,3 @@ function rotateSubtitle() {
 setInterval(rotateSubtitle, 2500);
 rotateSubtitle();
 
-// 🔧 MOBILE width fix for Chrome
-function fixMarqueeWidth() {
-    const track = document.querySelector(".slider-track");
-    const slides = document.querySelectorAll(".slide");
-
-    let width = 0;
-    slides.forEach(s => width += s.offsetWidth + 16); // 16 = gap (1rem)
-
-    track.style.width = width + "px";
-}
-
-fixMarqueeWidth();
-window.addEventListener("resize", fixMarqueeWidth);
