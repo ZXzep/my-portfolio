@@ -280,7 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
   new ParticleSystem('particle-canvas');
   
   // Initialize tech marquee
-  new TechMarquee();
+  if (window.innerWidth > 768) {
+    new TechMarquee();
+  }
+
   
   // Initialize portfolio filter
   new PortfolioFilter();
@@ -323,10 +326,8 @@ window.addEventListener("scroll", () => {
 
 function initInfiniteSlider() {
     // ปิดการทำงานทั้งหมดบนมือถือ
-  if (window.innerWidth < 768) {
-      console.log("Marquee disabled on mobile");
-      return;
-    }
+// ปิดแบบ Hard ป้องกันทุกกรณี
+  if (window.innerWidth < 768) return;
   const track = document.querySelector(".slider-track");
   if (!track) return;
 
@@ -361,8 +362,10 @@ function initInfiniteSlider() {
       requestAnimationFrame(animate);
   }
 
-  track.addEventListener("mouseenter", () => paused = true);
-  track.addEventListener("mouseleave", () => paused = false);
+if (window.innerWidth > 768) {
+    track.addEventListener("mouseenter", () => paused = true);
+    track.addEventListener("mouseleave", () => paused = false);
+}
 
   requestAnimationFrame(animate);
 }
