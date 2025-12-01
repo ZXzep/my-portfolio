@@ -1393,6 +1393,33 @@ nav.scrolled {
   background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
+/* Desktop = marquee */
+.slider-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Mobile = เปลี่ยนเป็น scroll-x */
+@media (max-width: 768px) {
+  .slider-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+  }
+
+  .slider-container::-webkit-scrollbar {
+    display: none; /* ซ่อน scrollbar */
+  }
+
+  .slide {
+    width: 140px;   /* ปรับขนาดให้เหมาะกับมือถือ */
+    margin-right: 12px;
+    scroll-snap-align: center;
+  }
+}
+
+
 .slider-track {
   display: flex;
   gap: 2rem;

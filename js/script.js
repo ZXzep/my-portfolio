@@ -322,45 +322,40 @@ window.addEventListener("scroll", () => {
 });
 
 function initInfiniteSlider() {
-  const track = document.querySelector(".slider-track");
-  if (!track) return;
 
-  const speed = 0.5;
-  let paused = false;
+    // ถ้าเป็นมือถือ → ไม่ต้องใช้ marquee
+    if (window.innerWidth < 768) {
+        console.log("Mobile detected — marquee disabled");
+        return;
+    }
 
-  // ดึงลูกทั้งหมด (รอบแรก)
-  const slides = [...track.children];
+    const track = document.querySelector(".slider-track");
+    const slides = Array.from(track.children);
+    
+    let totalWidth = 0;
 
-  // ทำรอบสอง
-  slides.forEach(slide => {
-      track.appendChild(slide.cloneNode(true));
-  });
+    slides.slice(0, slides.length / 2).forEach(img => {
+        totalWidth += img.getBoundingClientRect().width + 32;
+    });
 
-  let pos = 0;
+    let pos = 0;
+    let paused = false;
 
-  function animate() {
-      if (!paused) {
-          pos -= speed;
+    function animate() {
+        if (!paused) {
+            pos -= 1.2;
+            if (Math.abs(pos) >= totalWidth) pos = 0;
+            track.style.transform = `translateX(${pos}px)`;
+        }
+        requestAnimationFrame(animate);
+    }
 
-          // scrollWidth คือความกว้างทั้งหมดของ track
-          const maxScroll = track.scrollWidth / 2;
+    track.parentElement.addEventListener("mouseenter", () => paused = true);
+    track.parentElement.addEventListener("mouseleave", () => paused = false);
 
-          // ถ้าเลื่อนไปไกลเกินชุดแรก → รีเซ็ตแบบเนียน
-          if (Math.abs(pos) >= maxScroll) {
-              pos += maxScroll; 
-          }
-
-          track.style.transform = `translateX(${pos}px)`;
-      }
-
-      requestAnimationFrame(animate);
-  }
-
-  track.addEventListener("mouseenter", () => paused = true);
-  track.addEventListener("mouseleave", () => paused = false);
-
-  requestAnimationFrame(animate);
+    animate();
 }
+
 
 
 
