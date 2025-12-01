@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Punnathat Samoprong - Multidisciplinary Designer specializing in UX/UI, Graphic, and 3D Design">
+    <title>Punnathat Samoprong — Digital Designer Portfolio
+    </title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Particle Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about-me">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-glass-panel">
+                <p class="hero-intro">Welcome to my portfolio — step into my world as a</p>
+                <h1 class="hero-title">Digital Designer</h1>
+                <p class="hero-subtitle">
+                    <span id="dynamic-text"></span>
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="hero-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        Get In Touch
+                    </a>
+                    <a href="assets/pdf/Punnathat_Samoprong_Resume_Formal.pdf" class="hero-btn" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-to-line-icon lucide-arrow-down-to-line"><path d="M12 17V3"/><path d="m6 11 6 6 6-6"/><path d="M19 21H5"/></svg>
+                        Download Resume
+                    </a>
+                
+                </div>
+                
+            </div>
+            <div class="hero-orbit">
+                <div class="orbit-rotate">
+                    <!-- <div class="orbit-circle"></div> -->
+            
+                    <!-- ไอคอน 8 อัน -->
+                    <img src="assets/svg/figma-icon.svg" class="orbit-icon">
+                    <img src="assets/svg/ai-icon.svg" class="orbit-icon">
+                    <img src="assets/svg/ps-icon.svg" class="orbit-icon">
+                    <img src="assets/svg/blender-icon.svg" class="orbit-icon">
+                    <img src="assets/svg/html-icon.svg" class="orbit-icon">
+                    <img src="assets/svg/css-icon.svg" class="orbit-icon">
+                    <img src="assets/svg/pr-icon.svg" class="orbit-icon">
+                    <img src="assets/svg/maya-icon.svg" class="orbit-icon">
+                </div>
+            </div>
+            <!-- <div class="hero-effects">
+                <div class="hero-spotlight"></div>
+                <div class="hero-orbit-glow"></div>
+            </div> -->
+
+                        
+            
+            
+        </section>
+
+<!-- About Me Section -->
+<section id="about-me" class="about-me-section">
+
+    <!-- Title Center -->
+    <h2 class="about-title">About Me</h2>
+
+    <div class="about-flex">
+        <!-- Left Image -->
+        <div class="about-img">
+            <img src="assets/img/me.jpg" alt="Portrait">
+        </div>
+
+        <!-- Right Text -->
+        <div class="about-text">
+            <p>
+                Hi, I'm <strong>Punnathat Samoprong</strong>, a multidisciplinary designer specializing in 
+                <strong>UX/UI Design</strong>, <strong>Visual Design</strong>, and <strong>3D Visualization</strong>.
+                I graduated from <strong>KMITL</strong> with a Bachelor’s Degree in 
+                <strong>Information Technology</strong>, majoring in the 
+                <strong>Multimedia & Game Development</strong> track.
+            </p>
+
+            <p>
+                With a background that blends technology, visual design, and interactive media, 
+                I enjoy creating <strong>clean, modern, and user-centered interfaces</strong>. 
+                My work combines structured problem-solving with strong aesthetic direction—turning complex 
+                concepts into intuitive and polished digital experiences.
+            </p>
+
+            <p>
+                I'm always open to new opportunities and collaborations. If you'd like to work together or explore more of my projects, feel free to reach out anytime.
+            </p>
+
+            <!-- Button Under Text -->
+            <a href="#contact" class="about-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                Get In Touch
+            </a>
+        </div>
+    </div>
+</section>
+
+        
+
+        <!-- About Section -->
+        <!-- <section id="about" class="section">
+            <div class="container">
+                <div class="bio-section">
+                    <h2>Hello, I'm Punnathat</h2>
+                    <p>
+                        I'm a multidisciplinary designer passionate about creating meaningful digital experiences. 
+                        With expertise spanning UX/UI design, graphic design, and 3D visualization, I bring a 
+                        unique perspective to every project. My work is driven by a commitment to user-centered 
+                        design, aesthetic excellence, and innovative problem-solving.
+                    </p>
+                    <p>
+                        Whether I'm designing intuitive interfaces, crafting compelling visual identities, or 
+                        bringing concepts to life in three dimensions, I approach each challenge with curiosity, 
+                        creativity, and attention to detail.
+                    </p>
+                    <p>
+                        I combine strategic thinking with creative execution. My multidisciplinary background 
+                        allows me to see projects from multiple angles, ensuring cohesive and impactful 
+                        solutions. I'm not just a designer—I'm a problem solver who understands both the 
+                        technical and aesthetic aspects of digital design.
+                    </p>
+                    <p>
+                        Collaboration is at the heart of my process. I work closely with clients and teams to 
+                        understand goals, constraints, and opportunities, translating complex requirements 
+                        into elegant, user-friendly designs.
+                    </p>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 3rem;">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>UX/UI Design</h3>
+                        <p>User research, wireframing, prototyping, and interface design. Creating intuitive and 
+                        engaging digital experiences that users love.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Graphic Design</h3>
+                        <p>Brand identity, visual communication, print design, and digital graphics. Bringing 
+                        concepts to life through compelling visual narratives.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>3D Design</h3>
+                        <p>3D modeling, rendering, visualization, and animation. Transforming ideas into 
+                        immersive three-dimensional experiences.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="marquee-row-container">
+                <!-- Row 1: Left to Right -->
+                <div class="marquee-container">
+                    <div class="marquee-track marquee-ltr">
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/figma-icon.svg">
+                                <span class="tech-name">Figma</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/ps-icon.svg">
+                                <span class="tech-name">Photoshop</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/ai-icon.svg">
+                                <span class="tech-name">Illustrator</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/pr-icon.svg">
+                                <span class="tech-name">Premiere</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/canva-icon.svg">
+                                <span class="tech-name">Canva</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/maya-icon.svg">
+                                <span class="tech-name">Maya</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/html-icon.svg">
+                                <span class="tech-name">HTML</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/css-icon.svg">
+                                <span class="tech-name">CSS</span>
+                            </div>
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                    </div>
+                </div>
+                <!-- Row 2: Right to Left -->
+                <!-- <div class="marquee-container">
+                    <div class="marquee-track marquee-rtl">
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/figma-icon.svg">
+                                <span class="tech-name">Figma</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/ps-icon.svg">
+                                <span class="tech-name">Photoshop</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/ai-icon.svg">
+                                <span class="tech-name">Illustrator</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/pr-icon.svg">
+                                <span class="tech-name">Premiere</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/canva-icon.svg">
+                                <span class="tech-name">Canva</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/maya-icon.svg">
+                                <span class="tech-name">Maya</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/html-icon.svg">
+                                <span class="tech-name">HTML</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/css-icon.svg">
+                                <span class="tech-name">CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- Row 3: Left to Right -->
+                <!-- <div class="marquee-container">
+                    <div class="marquee-track marquee-ltr">
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/figma-icon.svg">
+                                <span class="tech-name">Figma</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/ps-icon.svg">
+                                <span class="tech-name">Photoshop</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/ai-icon.svg">
+                                <span class="tech-name">Illustrator</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/pr-icon.svg">
+                                <span class="tech-name">Premiere</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/canva-icon.svg">
+                                <span class="tech-name">Canva</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/maya-icon.svg">
+                                <span class="tech-name">Maya</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/html-icon.svg">
+                                <span class="tech-name">HTML</span>
+                            </div>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="tech-card">
+                                <img class="tech-icon" src="assets/svg/css-icon.svg">
+                                <span class="tech-name">CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- Tech Stack Marquee -->
+        <!-- <section class="tech-marquee-section">
+            
+        </section> -->
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2>My Work</h2>
+                    <p class="subtitle" style="margin-top: 1rem;">A collection of projects across UX/UI, Graphic, and 3D Design</p>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="uxui">UX/UI</button>
+                    <button class="filter-btn" data-filter="graphic">Graphic</button>
+                    <button class="filter-btn" data-filter="3d">3D</button>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-category="uxui" onclick="window.location.href='project-codelabs.html'">
+                        <img class="portfolio-thumb" src="assets/img/codelabs.png">
+                        <div class="portfolio-item-info">
+                            <h3>Codelabs Tech Co., Ltd.</h3>
+                            <span class="category">UX/UI & Graphic Design Works</span>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="graphic" onclick="window.location.href='project-minddojo.html'">
+                        <!-- <div class="portfolio-item-placeholder">
+                            Graphic Project 1
+                        </div> -->
+                        <img class="portfolio-thumb" src="assets/img/minddojo.png">
+                        <div class="portfolio-item-info">
+                            <h3>MindDojo</h3>
+                            <span class="category">Graphic Design for Corporate Events & Media</span>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="3d" onclick="window.location.href='project-horklong.html'">
+                        <img class="portfolio-thumb" src="assets/img/horklong.png">
+                        <div class="portfolio-item-info">
+                            <h3>Hoklong Metaverse</h3>
+                            <span class="category">3D Modeling for Metaverse Tourism</span>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="uxui" onclick="window.location.href='project-ta.html'">
+                        <img class="portfolio-thumb" src="assets/img/ta.png">
+                        <div class="portfolio-item-info">
+                            <h3>TA Recruitment</h3>
+                            <span class="category">Mobile App UX/UI & Wireframe Design</span>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="graphic" onclick="window.location.href='project-freelance-gp.html'">
+                        <img class="portfolio-thumb" src="assets/img/gp.png">
+                        <div class="portfolio-item-info">
+                            <h3>Freelance Graphic Design</h3>
+                            <span class="category">Artwork Design for Game Promotions & Events</span>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="3d" onclick="window.location.href='project-3d-project.html'">
+                        <img class="portfolio-thumb" src="assets/img/3d.png">
+                        <div class="portfolio-item-info">
+                            <h3>University 3D Project</h3>
+                            <span class="category">3D Modeling & Asset Design</span>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="uxui" onclick="window.location.href='project-ttt.html'">
+                        <img class="portfolio-thumb" src="assets/img/ttt.png">
+                        <div class="portfolio-item-info">
+                            <h3>TIC-TACTICS</h3>
+                            <span class="category">Game Website UI/UX Design</span>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="uxui" onclick="window.location.href='project-kumi.html'">
+                        <img class="portfolio-thumb" src="assets/img/kumishop.png">
+                        <div class="portfolio-item-info">
+                            <h3>Kumi Shop</h3>
+                            <span class="category">E-commerce Website UX/UI Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2>Get In Touch</h2>
+                    <p class="subtitle" style="margin-top: 1rem;">Let's create something amazing together</p>
+                </div>
+
+                <!-- Contact Info Cards -->
+                <div class="contact-info">
+                    <div class="contact-card" target="_blank">
+                        <h3>Email</h3>
+                        <a href="mailto:zephyrxzep@gmail.com">zephyrxzep@gmail.com</a>
+                    </div>
+                    <div class="contact-card" target="_blank">
+                        <h3>Phone</h3>
+                        <a href="tel:0987070173">0987070173</a>
+                    </div>
+                    <div class="contact-card" target="_blank">
+                        <h3>Line</h3>
+                        <a href="https://line.me/ti/p/KUmvRwkEm7">punathat</a>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div style="text-align: center; margin: 3rem 0;">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--accent-color);">Connect With Me</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/punnathat-samoprong" target="_blank" class="social-link" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin-icon lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/punnathat.nu/" target="_blank" class="social-link" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook-icon lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/its.nu_?igsh=MTc4bGt2YjlkMml4eg%3D%3D&utm_source=qr" class="social-link" target="_blank" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram-icon lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <!-- <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                </form> -->
+            </div>
+        </section>
+        <div id="cursor-glow"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Punnathat Samoprong. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
