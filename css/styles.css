@@ -375,7 +375,7 @@ main {
 
 .marquee-container {
   width: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
   position: relative;
 }
 
@@ -469,7 +469,7 @@ main {
 
 .tech-card:hover {
   box-shadow: var(--glass-hover-shadow);
-  transform: scale(1.04);
+  /* transform: scale(1.04); */
 }
 
 .tech-card:hover .tech-icon {
