@@ -325,60 +325,53 @@ window.addEventListener("scroll", () => {
 });
 
 function initInfiniteSlider() {
-    // ปิดการทำงานทั้งหมดบนมือถือ
-// ปิดแบบ Hard ป้องกันทุกกรณี
-  if (window.innerWidth < 768) return;
-  const track = document.querySelector(".slider-track");
-  if (!track) return;
+    const track = document.querySelector(".slider-track");
+    if (!track) return;
 
-  const speed = 0.5;
-  let paused = false;
+    const isMobile = window.innerWidth < 768;
 
-  // ดึงลูกทั้งหมด (รอบแรก)
-  const slides = [...track.children];
+    // MOBILE — do NOT animate
+    if (isMobile) {
+        track.style.transform = "none";
+        return;
+    }
 
-  // ทำรอบสอง
-  slides.forEach(slide => {
-      track.appendChild(slide.cloneNode(true));
-  });
+    // DESKTOP — infinite marquee
+    const speed = 0.6;
+    let paused = false;
 
-  let pos = 0;
+    const slides = [...track.children];
+    slides.forEach(slide => track.appendChild(slide.cloneNode(true)));
 
-  function animate() {
-      if (!paused) {
-          pos -= speed;
+    let pos = 0;
 
-          // scrollWidth คือความกว้างทั้งหมดของ track
-          const maxScroll = track.scrollWidth / 2;
+    function animate() {
+        if (!paused) {
+            pos -= speed;
+            const maxScroll = track.scrollWidth / 2;
+            if (Math.abs(pos) >= maxScroll) pos += maxScroll;
+            track.style.transform = `translateX(${pos}px)`;
+        }
+        requestAnimationFrame(animate);
+    }
 
-          // ถ้าเลื่อนไปไกลเกินชุดแรก → รีเซ็ตแบบเนียน
-          if (Math.abs(pos) >= maxScroll) {
-              pos += maxScroll; 
-          }
-
-          track.style.transform = `translateX(${pos}px)`;
-      }
-
-      requestAnimationFrame(animate);
-  }
-
-if (window.innerWidth > 768) {
     track.addEventListener("mouseenter", () => paused = true);
     track.addEventListener("mouseleave", () => paused = false);
+
+    animate();
 }
-
-  requestAnimationFrame(animate);
-}
-
-
 
 initInfiniteSlider();
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.querySelector(".lightbox-img");
     const closeBtn = document.querySelector(".lightbox-close");
+
+    // ถ้าไม่มี lightbox ในหน้านี้ → หยุดเลย (กัน error)
+    if (!lightbox || !lightboxImg || !closeBtn) return;
 
     function openLightbox(src) {
         lightboxImg.src = src;
@@ -399,63 +392,86 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener("click", () => openLightbox(img.src));
     });
 
-    // ปิดเมื่อคลิกพื้นที่มืดหลังภาพ (เฉพาะ background เท่านั้น)
+    // ปิดเมื่อคลิก outside
     lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
+        if (e.target === lightbox) closeLightbox();
     });
 
     closeBtn.addEventListener("click", closeLightbox);
 });
 
+
 const glow = document.getElementById("cursor-glow");
 
-document.addEventListener("mousemove", (e) => {
-    glow.style.left = `${e.clientX}px`;
-    glow.style.top = `${e.clientY}px`;
-});
+if (glow) {
+    // desktop
+    document.addEventListener("mousemove", (e) => {
+        glow.style.left = `${e.clientX}px`;
+        glow.style.top = `${e.clientY}px`;
+    });
+
+    // mobile (touch)
+    document.addEventListener("touchmove", (e) => {
+        const touch = e.touches[0];
+        glow.style.left = `${touch.clientX}px`;
+        glow.style.top = `${touch.clientY}px`;
+    });
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
-  const orbit = document.querySelector(".hero-orbit");
-  const icons = document.querySelectorAll(".orbit-icon");
+    const orbit = document.querySelector(".hero-orbit");
+    const icons = document.querySelectorAll(".orbit-icon");
 
-  const size = orbit.offsetWidth;
-  const center = size / 2;
-  const radius = center - 1;  // เส้นวงล้วน ๆ ไม่มีลด
+    // ❗ ถ้าไม่มี hero-orbit ในหน้านี้ → หยุดทันที
+    if (!orbit || icons.length === 0) return;
 
-  icons.forEach((icon, i) => {
-      const total = icons.length;
-      const angle = (i / total) * Math.PI * 2;
+    function placeOrbitIcons() {
+        const size = orbit.offsetWidth;
+        const center = size / 2;
+        const radius = center - 20;
 
-      const iconW = icon.offsetWidth;
-      const iconH = icon.offsetHeight;
+        icons.forEach((icon, i) => {
+            const total = icons.length;
+            const angle = (i / total) * Math.PI * 2;
 
-      // ตำแหน่งใหม่ — ไอคอนตรงบนเส้นเป๊ะ
-      const x = Math.cos(angle) * radius + center - iconW / 2;
-      const y = Math.sin(angle) * radius + center - iconH / 2;
+            const iconW = icon.offsetWidth;
+            const iconH = icon.offsetHeight;
 
-      icon.style.left = `${x}px`;
-      icon.style.top = `${y}px`;
+            const x = Math.cos(angle) * radius + center - iconW / 2;
+            const y = Math.sin(angle) * radius + center - iconH / 2;
 
-      // หมุนเข้าหาศูนย์กลาง
-      const deg = (angle * 180 / Math.PI) + 90;
-      icon.style.transform = `rotate(${deg}deg)`;
-  });
+            icon.style.left = `${x}px`;
+            icon.style.top = `${y}px`;
+
+            const deg = (angle * 180 / Math.PI) + 90;
+            icon.style.transform = `rotate(${deg}deg)`;
+        });
+    }
+
+    // เรียกครั้งแรกตอนโหลด
+    placeOrbitIcons();
+
+    // เรียกอีกรอบเมื่อ resize (แก้ปัญหา mobile layout)
+    window.addEventListener("resize", placeOrbitIcons);
 });
 
+
+
 const subtitleWords = [
-  "UX/UI Designer",
-  "Visual Designer",
-  "3D Artist",
-  "Product Designer",
-  "Creative Developer"
+    "UX/UI Designer",
+    "Visual Designer",
+    "3D Artist",
+    "Product Designer",
+    "Creative Developer"
 ];
 
 let index = 0;
 
 function rotateSubtitle() {
     const el = document.getElementById("dynamic-text");
+    if (!el) return; // ⬅ ป้องกัน error แบบ 100%
+
     el.style.opacity = 0;
 
     setTimeout(() => {

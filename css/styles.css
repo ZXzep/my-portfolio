@@ -615,6 +615,58 @@ main {
   transform: scale(1.2);
 }
 
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 260px;     /* desktop */
+}
+
+/* ================================
+   MOBILE SLIDER CLEAN FIX (FINAL)
+================================ */
+@media (max-width: 768px) {
+
+    /* ปิด Infinite Scroll บนมือถือ */
+    .slider-track {
+        transform: none !important;
+        animation: none !important;
+        width: max-content;
+        display: flex;
+        gap: 16px;
+        flex-wrap: nowrap;
+    }
+
+    .slider-container {
+        width: 100%;
+        height: 100%;
+        overflow-x: auto;
+        overflow-y: visible;
+        scroll-snap-type: x mandatory;
+        position: relative;
+        padding: 20px 0 50px; /* กันโดนปุ่ม Back ทับ */
+    }
+
+    .slider-track img.slide {
+        width: 85vw !important;
+        height: auto !important;
+        /* border-radius: 20px; */
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        object-fit: cover;
+    }
+
+
+
+    /* ซ่อน scrollbar */
+    .slider-container::-webkit-scrollbar {
+        display: none;
+    }
+    .slider-container { scrollbar-width: none; }
+}
+
+
+
 /* ============================================
    About Me Section
    ============================================ */
@@ -1045,6 +1097,15 @@ main {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+@media (max-width: 768px) {
+    .portfolio-item:hover .portfolio-item-info {
+        transform: none !important;
+        opacity: 1 !important;
+        bottom: 0 !important;
+    }
+}
+
 
 /* ===========================
    Mobile Responsive
@@ -1586,34 +1647,7 @@ nav.scrolled {
   }
 }
 
-.slider-container {
-  width: 100%;
-  overflow: hidden;
-  padding: 1.5rem 0;
-  position: relative;
-}
 
-/* fade ซ้ายขวา */
-.slider-container::before,
-.slider-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 120px;
-  height: 100%;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.slider-container::before {
-  left: 0;
-  background: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
-}
-
-.slider-container::after {
-  right: 0;
-  background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
-}
 
 .slider-track {
   display: flex;
@@ -1646,6 +1680,23 @@ nav.scrolled {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* ------- Project Slider Responsive ------- */
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 260px; /* เดสก์ท็อป */
+}
+
+.slider-track img {
+    height: 120px;
+    width: auto;
+}
+
+
+
 
 /* Lightbox overlay */
 .lightbox {
@@ -1986,5 +2037,94 @@ nav.scrolled {
 .slide-link:hover {
   transform: scale(1.05);
   filter: brightness(1.2);
+}
+
+/* ===========================
+   MOBILE SLIDER — FINAL FIX
+=========================== */
+@media (max-width: 768px) {
+
+    /* ปิด infinite scroll */
+    .slider-track {
+        transform: none !important;
+        animation: none !important;
+        display: flex;
+        gap: 16px;
+        flex-wrap: nowrap;
+        width: max-content !important;
+    }
+
+    /* Container scroll ได้ */
+    .slider-container {
+        width: 100%;
+        height: 85vw;
+        overflow-x: auto;
+        overflow-y: visible;
+        scroll-snap-type: x mandatory;
+        position: relative;
+        padding: 20px 0 60px;  /* กันโดนปุ่ม Back ทับ */
+    }
+
+    /* รูปใหญ่แบบ full center */
+    .slider-track img.slide {
+        width: 85vw !important;
+        height: auto !important;
+        /* border-radius: 20px; */
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        object-fit: cover;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .slider-container {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        position: relative;
+        padding: 20px 0 70px;
+
+        height: auto !important;      /* แก้จุดสำคัญ */
+        min-height: auto !important;  /* กันการโดนบังคับสูง */
+        max-height: none !important;  /* กันการโดนล็อก */
+    }
+
+    .slider-track {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 16px;
+        width: max-content !important;
+        height: auto !important;      /* สำคัญมาก */
+    }
+
+    .slider-track img.slide {
+        height: 85vw !important;
+        width: auto !important;      /* ทำให้ไม่โดนยืด / หด */
+        /* border-radius: 20px; */
+        flex-shrink: 0;
+        object-fit: cover;
+        scroll-snap-align: center;
+    }
+}
+
+/* จัดให้รูป id="toowideee" อยู่กลางกล่อง */
+#toowideee {
+    width: auto !important;
+    height: 20px !important; /* เท่ากับความสูง slider บนมือถือ */
+    object-fit: contain !important;
+
+    /* จัดให้อยู่กลางแนวตั้ง */
+    display: flex;
+    align-self: center;
+}
+
+@media (max-width: 768px) {
+    #toowideee {
+        height: 50px !important;
+        object-fit: contain !important;
+    }
 }
 
