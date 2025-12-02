@@ -2128,3 +2128,27 @@ nav.scrolled {
     }
 }
 
+/* 📌 ปิด hover effect บนมือถือ */
+@media (max-width: 768px) {
+    .portfolio-item:hover,
+    .portfolio-thumb:hover,
+    .portfolio-item-info:hover,
+    .slide:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        scale: 1 !important;
+        filter: none !important;
+    }
+}
+
+.portfolio-item {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.portfolio-item.hide {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}

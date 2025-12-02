@@ -103,33 +103,26 @@ class PortfolioFilter {
     this.filterButtons.forEach(button => {
       button.addEventListener('click', () => {
         const filter = button.dataset.filter;
-        
-        // Update active button
+
+        // เปลี่ยนปุ่ม active
         this.filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
-        
-        // Filter items - only change display/opacity, never background colors
+
+        // ใช้ class .hide (ไม่เปลี่ยน display!!)
         this.portfolioItems.forEach(item => {
           const category = item.dataset.category;
-          
-          if (filter === 'all' || category === filter) {
-            item.style.display = 'block';
-            setTimeout(() => {
-              item.style.opacity = '1';
-              item.style.transform = 'scale(1)';
-            }, 10);
+
+          if (filter === "all" || category === filter) {
+            item.classList.remove('hide');
           } else {
-            item.style.opacity = '0';
-            item.style.transform = 'scale(0.8)';
-            setTimeout(() => {
-              item.style.display = 'none';
-            }, 300);
+            item.classList.add('hide');
           }
         });
       });
     });
   }
 }
+
 
 /* ============================================
    Contact Form Handler
