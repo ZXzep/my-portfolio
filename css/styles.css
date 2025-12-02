@@ -219,6 +219,12 @@ main {
   text-align: center;
   padding: 0rem 5% 4rem;
   position: relative;
+  
+}
+.hero {
+    position: relative;
+    min-height: 100vh; /* ให้สูงเต็มจอเสมอ */
+    overflow: hidden;  /* ป้องกัน orbit หลุด */
 }
 
 /* .hero-glass-panel {
@@ -1804,6 +1810,98 @@ nav.scrolled {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* ===== ORBIT MAIN WRAPPER ===== */
+.hero-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===== ROTATION ===== */
+.orbit-rotate {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    animation: orbit 40s linear infinite;
+}
+
+/* ===== ICONS ON ORBIT ===== */
+.orbit-icon {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    transform-origin: center;
+}
+
+/* จัดไอคอนให้กระจายรอบวง 360° */
+.orbit-icon:nth-child(1) { transform: rotate(0deg)   translate(300px) rotate(-0deg); }
+.orbit-icon:nth-child(2) { transform: rotate(45deg)  translate(300px) rotate(-45deg); }
+.orbit-icon:nth-child(3) { transform: rotate(90deg)  translate(300px) rotate(-90deg); }
+.orbit-icon:nth-child(4) { transform: rotate(135deg) translate(300px) rotate(-135deg); }
+.orbit-icon:nth-child(5) { transform: rotate(180deg) translate(300px) rotate(-180deg); }
+.orbit-icon:nth-child(6) { transform: rotate(225deg) translate(300px) rotate(-225deg); }
+.orbit-icon:nth-child(7) { transform: rotate(270deg) translate(300px) rotate(-270deg); }
+.orbit-icon:nth-child(8) { transform: rotate(315deg) translate(300px) rotate(-315deg); }
+
+@keyframes orbit {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hero-orbit {
+        width: 350px;
+        height: 350px;
+        top: 43%; /* ขยับลงเพิ่มเพื่อไม่ให้ทับ hero title */
+    }
+
+    .orbit-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    /* ลดระยะห่างจาก center */
+    .orbit-icon:nth-child(1),
+    .orbit-icon:nth-child(2),
+    .orbit-icon:nth-child(3),
+    .orbit-icon:nth-child(4),
+    .orbit-icon:nth-child(5),
+    .orbit-icon:nth-child(6),
+    .orbit-icon:nth-child(7),
+    .orbit-icon:nth-child(8) {
+        transform: rotate(var(--deg)) translate(170px) rotate(calc(-1 * var(--deg)));
+    }
+}
+
+/* กำหนดค่ามุมง่ายขึ้น */
+.orbit-icon:nth-child(1) { --deg: 0deg; }
+.orbit-icon:nth-child(2) { --deg: 45deg; }
+.orbit-icon:nth-child(3) { --deg: 90deg; }
+.orbit-icon:nth-child(4) { --deg: 135deg; }
+.orbit-icon:nth-child(5) { --deg: 180deg; }
+.orbit-icon:nth-child(6) { --deg: 225deg; }
+.orbit-icon:nth-child(7) { --deg: 270deg; }
+.orbit-icon:nth-child(8) { --deg: 315deg; }
+
+.hero-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%); /* ขยับขึ้นนิดเพื่อไม่ทับหัวข้อ */
+    width: 600px;
+    height: 600px;
+    pointer-events: none;
+    z-index: -1;
+}
+
 
 
 #cursor-glow {
