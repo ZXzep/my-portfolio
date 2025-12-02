@@ -2152,3 +2152,15 @@ nav.scrolled {
   transform: scale(0.8);
   pointer-events: none;
 }
+
+/* Mobile: ซ่อน category, h3 แสดงตามปกติ */
+@media (max-width: 768px) {
+  .portfolio-item-info .category {
+    display: none !important;
+  }
+
+  /* ขยับ h3 ให้กลางขึ้นนิดหน่อยถ้าต้องการ */
+  .portfolio-item-info h3 {
+    margin-bottom: 0;
+  }
+}
